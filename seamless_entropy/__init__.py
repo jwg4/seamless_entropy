@@ -1,1 +1,1 @@
-from pure_python import binary_entropy
+from .pure_python import binary_entropy
