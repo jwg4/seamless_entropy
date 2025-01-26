@@ -5,8 +5,8 @@ def no_op_decorator(f):
 
 
 def numba_wrapper(f):
-    f = numba.jit(f)
     f._platform = "Numba"
+    f = numba.jit(f)
     return f
 
 
