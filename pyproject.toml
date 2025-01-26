@@ -19,3 +19,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.4"
 
+
+[tool.poetry.group.numba.dependencies]
+numba = "^0.61.0"
+
