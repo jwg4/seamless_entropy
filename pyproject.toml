@@ -1,0 +1,17 @@
+[project]
+name = "seamless-entropy"
+version = "0.1.0"
+description = "An experimental package intended to test adaptive dependencies for numeric code."
+authors = [
+    {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
