@@ -1,4 +1,4 @@
-name: poetry install for pure python
+name: poetry install for numba
 on:
    - push
 
