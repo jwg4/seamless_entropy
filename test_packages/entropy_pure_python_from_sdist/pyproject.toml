@@ -6,7 +6,6 @@ authors = [
     {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
 ]
 license = {text = "MIT"}
-readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
 ]
