@@ -23,5 +23,7 @@ def get_platform(f):
 
 
 def test_function_details():
+    actual_platform = get_platform(binary_entropy)
+    assert "SEAMLESS_TEST_TARGET_PLATFORM" in environ, "No expected platform set: actual platform is %s" % (actual_platform, )
     target = environ["SEAMLESS_TEST_TARGET_PLATFORM"]
-    assert get_platform(binary_entropy) == target
+    assert actual_platform == target
