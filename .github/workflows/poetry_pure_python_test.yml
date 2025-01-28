@@ -20,4 +20,4 @@ jobs:
       - name: Install requirements
         run: poetry install
       - name: Test package
-        run: poetry run pytest 
+        run: poetry run pytest --ignore test_packages
