@@ -13,6 +13,8 @@ jobs:
           python-version: 3.9
       - name: Install poetry
         run: pip install poetry
+      - name: Add requirements
+        run: poetry install --with wheel_builder
       - name: Build package
         run: poetry build
       - uses: actions/upload-artifact@master

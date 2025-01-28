@@ -8,9 +8,9 @@ jobs:
       fail-fast: false
       matrix:
         platform:
-          - {"install": "poetry install --with numba", "name": "Numba"}
-          - {"install": "poetry install --with scipy", "name": "Scipy"}
-          - {"install": "poetry install", "name": "Pure Python"}
+          - {"install": "poetry install --with numba,wheel_builder", "name": "Numba"}
+          - {"install": "poetry install --with scipy,wheel_builder", "name": "Scipy"}
+          - {"install": "poetry install --with wheel_builder", "name": "Pure Python"}
     runs-on: ubuntu-latest
     env:
       SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.platform.name }}
