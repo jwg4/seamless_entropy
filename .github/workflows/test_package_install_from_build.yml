@@ -68,9 +68,9 @@ jobs:
       fail-fast: false
       matrix:
         package:
-          - {"location": "test_packages/entropy_numba_from_build", "platform": "Pure C"}
-          - {"location": "test_packages/entropy_scipy_from_build", "platform": "Pure C"}
-          - {"location": "test_packages/entropy_pure_python_from_build", "platform": "Pure C"}
+          - {"location": "test_packages/entropy_numba_from_build", "platform": "C"}
+          - {"location": "test_packages/entropy_scipy_from_build", "platform": "C"}
+          - {"location": "test_packages/entropy_pure_python_from_build", "platform": "C"}
         build: 
           - {"glob": "seamless_entropy-*.tar.gz", "artefact": "Build_SDist"}
           - {"glob": "seamless_entropy-*.whl", "artefact": "Build_Wheel"}

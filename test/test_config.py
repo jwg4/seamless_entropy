@@ -6,7 +6,7 @@ from seamless_entropy import binary_entropy
 
 def get_platform(f):
     if isbuiltin(f):
-        return "Pure C"
+        return "C"
 
     try:
         return f._platform
