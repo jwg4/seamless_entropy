@@ -70,9 +70,8 @@ def attempt_c_build(setup_kwargs):
 
 
 def build(setup_kwargs):
-    c_buildable = attempt_c_build(setup_kwargs)
-
     if not DISABLE_SPEEDUPS:
+        c_buildable = attempt_c_build(setup_kwargs)
         if c_buildable:
             setup_kwargs.update(
                 {
