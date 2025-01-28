@@ -26,7 +26,7 @@ jobs:
           name: Build_Wheel
           path: dist/seamless_entropy-*.whl
   
-  install_and_test:
+  install_and_test_without_c:
     strategy:
       fail-fast: false
       matrix:
@@ -44,6 +44,7 @@ jobs:
         working-directory: ${{ matrix.package.location }}
     env:
       SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.package.platform }}
+      DISABLE_SPEEDUPS: 1
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -57,7 +58,44 @@ jobs:
         run: pip install poetry
       - name: Install requirements
         run: poetry install
-      - name: Install sdist package for seamless_entropy
+      - name: Install package for seamless_entropy
+        run: poetry run pip install ${{ matrix.build.glob }}
+      - name: Test package
+        run: poetry run pytest 
+
+  install_and_test_with_c:
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - {"location": "test_packages/entropy_numba_from_build", "platform": "Pure C"}
+          - {"location": "test_packages/entropy_scipy_from_build", "platform": "Pure C"}
+          - {"location": "test_packages/entropy_pure_python_from_build", "platform": "Pure C"}
+        build: 
+          - {"glob": "seamless_entropy-*.tar.gz", "artefact": "Build_SDist"}
+          - {"glob": "seamless_entropy-*.whl", "artefact": "Build_Wheel"}
+    runs-on: ubuntu-latest
+    needs: build
+    defaults:
+      run:
+        working-directory: ${{ matrix.package.location }}
+    env:
+      SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.package.platform }}
+      DISABLE_SPEEDUPS: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{ matrix.build.artefact }}
+          path: ${{ matrix.package.location }}
+      - name: Install poetry
+        run: pip install poetry
+      - name: Install requirements
+        run: poetry install
+      - name: Install package for seamless_entropy
         run: poetry run pip install ${{ matrix.build.glob }}
       - name: Test package
         run: poetry run pytest 
