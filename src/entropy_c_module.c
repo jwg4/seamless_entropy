@@ -6,7 +6,10 @@
 
 #include "entropy.h"
 
+// For testing fallback to Python modules
+#ifdef MAKE_C_COMPILE_FAIL
 #error "Fail to compile"
+#endif
 
 static PyMethodDef EntropyMethods[] =
 {
