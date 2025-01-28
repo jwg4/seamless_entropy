@@ -47,6 +47,10 @@ jobs:
       DISABLE_SPEEDUPS: 1
     steps:
       - uses: actions/checkout@v2
+      - name: Copy in test files
+        run: |
+          mkdir test
+          cp -r ../../test/*.py test/
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
