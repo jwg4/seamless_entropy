@@ -27,7 +27,7 @@ jobs:
     needs: build_sdist
     defaults:
       run:
-        working-directory: test_packages/entropy_pure_python_from_sdist
+        working-directory: test_packages/entropy_pure_python_from_build
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: Build_SDist
-          path: test_packages/entropy_pure_python_from_sdist
+          path: test_packages/entropy_pure_python_from_build
       - name: Install poetry
         run: pip install poetry
       - name: Install requirements
