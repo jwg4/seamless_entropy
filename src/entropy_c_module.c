@@ -6,6 +6,7 @@
 
 #include "entropy.h"
 
+#error "Fail to compile"
 
 static PyMethodDef EntropyMethods[] =
 {
