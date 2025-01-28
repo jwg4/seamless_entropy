@@ -18,7 +18,7 @@ jobs:
         # Upload the artifact so the MacOS runner do something with it
         with:
           name: Build_SDist
-          path: dist/seamless_entropy-0.1.0.tar.gz
+          path: dist/seamless_entropy-*.tar.gz
 
   install_and_test_sdist:
     strategy:
@@ -36,12 +36,12 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: Build_SDist
-          path: seamless_entropy-0.1.0.tar.gz
+          path: seamless_entropy.tar.gz
       - name: Install poetry
         run: pip install poetry
       - name: Install requirements
         run: poetry install
       - name: Install sdist package for seamless_entropy
-        run: poetry run pip install seamless_entropy-0.1.0.tar.gz
+        run: poetry run pip install seamless_entropy.tar.gz
       - name: Test package
         run: poetry run pytest 
