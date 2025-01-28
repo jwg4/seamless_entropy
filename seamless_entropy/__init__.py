@@ -1,5 +1,10 @@
 try:
-    import scipy # type: ignore
-    from .use_scipy import binary_entropy
+    from entropy_c import binary_entropy
+    binary_entropy._platform = "Pure C"
+    
 except ImportError:
-    from .pure_python import binary_entropy
+    try:
+        import scipy # type: ignore
+        from .use_scipy import binary_entropy
+    except ImportError:
+        from .pure_python import binary_entropy
