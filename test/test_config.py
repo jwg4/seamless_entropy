@@ -20,3 +20,9 @@ def get_platform(f):
 def test_function_details():
     target = environ["SEAMLESS_TEST_TARGET_PLATFORM"]
     assert get_platform(binary_entropy) == target
+
+
+def test_numba_f():
+    assert binary_entropy.py_func is not None
+    assert binary_entropy.py_func._platform is not None
+    
