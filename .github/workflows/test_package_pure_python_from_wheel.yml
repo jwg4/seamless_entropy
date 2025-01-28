@@ -17,7 +17,7 @@ jobs:
       - uses: actions/upload-artifact@master
         # Upload the artifact so the MacOS runner do something with it
         with:
-          name: Build_SDist
+          name: Build_Wheel
           path: dist/seamless_entropy-*.whl
 
   install_and_test_wheel:
@@ -35,7 +35,7 @@ jobs:
           python-version: 3.9
       - uses: actions/download-artifact@master
         with:
-          name: Build_SDist
+          name: Build_Wheel
           path: test_packages/entropy_pure_python_from_build
       - name: Install poetry
         run: pip install poetry
