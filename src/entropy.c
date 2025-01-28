@@ -14,7 +14,7 @@ PyObject* binary_entropy(PyObject* self, PyObject* args)
     /*  Parse single numpy array argument */
     if (!PyArg_ParseTuple(args, "d", &x)) return NULL;
 
-    double z = x * log(x) / log(2.0);
+    double z = -x * log(x) / log(2.0);
     return Py_BuildValue("d", z);
 }
 
