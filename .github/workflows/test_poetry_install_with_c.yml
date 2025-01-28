@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         platform:
-          - {"install": "poetry install --with wheel_builder", "name": "Native C"}
+          - {"install": "poetry install", "name": "Native C"}
     runs-on: ubuntu-latest
     env:
       SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.platform.name }}
