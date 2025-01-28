@@ -20,7 +20,7 @@ jobs:
       - name: Install poetry
         run: pip install poetry
       - name: disable python-dev
-        run: apt remove python-dev
+        run: sudo apt remove python-dev
       - name: Install requirements
         run: ${{ matrix.platform.install }}
       - name: Test package
