@@ -36,7 +36,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: Build_SDist
-          path: seamless_entropy.tar.gz
+          path: test_packages/entropy_pure_python_from_sdist/seamless_entropy.tar.gz
       - name: Install poetry
         run: pip install poetry
       - name: Install requirements
