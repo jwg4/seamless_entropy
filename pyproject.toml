@@ -10,6 +10,20 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
 ]
+include = [
+    {path = "src/*.c", format = "sdist"},
+    {path = "src/*.h", format = "sdist"}
+]
+
+[tool.poetry.group.wheel_builder]
+optional = true
+
+[tool.poetry.group.wheel_builder.dependencies]
+setuptools = ">=51.1.2"
+
+[tool.poetry.build]
+script = "build.py"
+generate-setup-file = true
 
 
 [build-system]
