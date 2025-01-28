@@ -1,3 +1,7 @@
 poetry.lock
 __pycache__
 dist/
+build/
+entropy_c.cp313-win_amd64.pyd
+seamless_entropy.egg-info/
+setup.py
