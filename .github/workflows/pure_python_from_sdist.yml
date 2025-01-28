@@ -24,6 +24,7 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
+    needs: build_sdist
     defaults:
       run:
         working-directory: test_packages/entropy_pure_python_from_sdist
