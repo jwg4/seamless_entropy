@@ -85,7 +85,6 @@ jobs:
         working-directory: ${{ matrix.package.location }}
     env:
       SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.package.platform }}
-      DISABLE_SPEEDUPS: 1
     steps:
       - uses: actions/checkout@v2
       - name: Copy in test files
