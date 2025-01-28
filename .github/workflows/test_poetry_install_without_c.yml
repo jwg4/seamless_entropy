@@ -21,8 +21,6 @@ jobs:
           python-version: 3.9
       - name: Install poetry
         run: pip install poetry
-      - name: Kill C compilation
-        run: sudo apt remove gcc
       - name: Install requirements
         run: ${{ matrix.platform.install }}
       - name: Test package
