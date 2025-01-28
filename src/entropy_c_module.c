@@ -1,5 +1,3 @@
-#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
-
 #include <Python.h>
 #include <math.h>
 
@@ -9,7 +7,7 @@
 #include "entropy.h"
 
 
-static PyMethodDef NormieImplMethods[] =
+static PyMethodDef EntropyMethods[] =
 {
      {"binary_entropy", binary_entropy, METH_VARARGS, "Entropy (with base 2 logs)"},
      {NULL, NULL, 0, NULL}
@@ -34,7 +32,7 @@ static struct PyModuleDef moduledef = {
 	"entropy_c",
 	NULL,
 	sizeof(struct module_state),
-	NormieImplMethods,
+	EntropyMethods,
 	NULL,
 	entropy_c_traverse,
 	entropy_c_clear,
