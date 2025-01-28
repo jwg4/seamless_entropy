@@ -10,7 +10,8 @@ def get_platform(f):
         pass
 
     try:
-        return f.py_func._platform
+        if f.__numba__ is not None:
+            return "Numba"
     except:
         pass
 
