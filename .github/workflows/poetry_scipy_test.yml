@@ -1,4 +1,4 @@
-name: poetry install for numba
+name: poetry install for scipy
 on:
    - push
 
