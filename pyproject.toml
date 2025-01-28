@@ -5,15 +5,30 @@ description = "An experimental package intended to test adaptive dependencies fo
 authors = [
     {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
 ]
+maintainers = [
+    {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
+]
 license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
 ]
+
+
+[tool.poetry]
 include = [
     {path = "src/*.c", format = "sdist"},
     {path = "src/*.h", format = "sdist"}
 ]
+
+[tool.poetry.build]
+script = "build.py"
+generate-setup-file = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 
 [tool.poetry.group.wheel_builder]
 optional = true
@@ -21,18 +36,8 @@ optional = true
 [tool.poetry.group.wheel_builder.dependencies]
 setuptools = ">=51.1.2"
 
-[tool.poetry.build]
-script = "build.py"
-generate-setup-file = true
-
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
-
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.4"
-
 
 [tool.poetry.group.numba.dependencies]
 numba = "^0.61.0"
