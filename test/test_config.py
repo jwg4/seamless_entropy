@@ -1,9 +1,13 @@
+from inspect import isbuiltin
 from os import environ
 
 from seamless_entropy import binary_entropy
 
 
 def get_platform(f):
+    if isbuiltin(f):
+        return "Pure C"
+
     try:
         return f._platform
     except:

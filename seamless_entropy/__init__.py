@@ -1,6 +1,5 @@
 try:
     from entropy_c import binary_entropy
-    binary_entropy._platform = "Pure C"
     
 except ImportError:
     try:
