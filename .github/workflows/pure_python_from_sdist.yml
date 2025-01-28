@@ -14,7 +14,7 @@ jobs:
         run: pip install poetry
       - name: Build package
         run: poetry build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@master
         # Upload the artifact so the MacOS runner do something with it
         with:
           name: Build_SDist
