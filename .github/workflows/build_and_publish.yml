@@ -6,25 +6,6 @@ on:
       - build_and_publish
 
 jobs:
-  publish_wheel_without_c:
-    runs-on: ubuntu-latest
-    env:
-      DISABLE_SPEEDUPS: 1
-    if: "contains(github.event.head_commit.message, 'Release Version')"
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: "3.10"
-      - name: Install poetry
-        run: pip install poetry
-      - name: Add requirements
-        run: poetry install -v
-      - name: Build package
-        run: poetry build -f wheel
-      - name: publish to pypi
-        run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
-
   publish_wheel_with_c:
     strategy:
       fail-fast: false
