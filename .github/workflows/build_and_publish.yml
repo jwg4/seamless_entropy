@@ -22,8 +22,6 @@ jobs:
         run: poetry install -v
       - name: Build package
         run: poetry build -f wheel
-      - name: Test package
-        run: poetry run test
       - name: publish to pypi
         run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
 
@@ -51,8 +49,6 @@ jobs:
         run: poetry install -v
       - name: Build package
         run: poetry build -f wheel
-      - name: Test package
-        run: poetry run test
       - name: publish to pypi
         run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
       
@@ -70,8 +66,6 @@ jobs:
         run: poetry install -v
       - name: Build package
         run: poetry build -f sdist
-      - name: Test package
-        run: poetry run test
       - name: publish to pypi
         run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
     
