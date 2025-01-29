@@ -1,6 +1,6 @@
 [project]
 name = "seamless-entropy"
-version = "0.2.2"
+version = "0.2.3"
 description = "An experimental package intended to test adaptive dependencies for numeric code."
 authors = [
     {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
