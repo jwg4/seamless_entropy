@@ -1,0 +1,28 @@
+name: check poetry install without C compilation
+on:
+   - push
+
+jobs:
+  testing:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - {"install": "poetry install --with numba", "name": "Numba"}
+          - {"install": "poetry install --with scipy", "name": "Scipy"}
+          - {"install": "poetry install", "name": "Pure Python"}
+    runs-on: ubuntu-latest
+    env:
+      SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.platform.name }}
+      DISABLE_SPEEDUPS: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install poetry
+        run: pip install poetry
+      - name: Install requirements
+        run: ${{ matrix.platform.install }}
+      - name: Test package
+        run: poetry run pytest --ignore test_packages

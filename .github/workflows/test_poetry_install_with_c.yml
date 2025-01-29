@@ -1,4 +1,4 @@
-name: check with poetry install
+name: check poetry install with C compilation
 on:
    - push
 
@@ -8,9 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         platform:
-          - {"install": "poetry install --with numba", "name": "Numba"}
-          - {"install": "poetry install --with scipy", "name": "Scipy"}
-          - {"install": "poetry install", "name": "Pure Python"}
+          - {"install": "poetry install", "name": "C"}
     runs-on: ubuntu-latest
     env:
       SEAMLESS_TEST_TARGET_PLATFORM: ${{ matrix.platform.name }}
