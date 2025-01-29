@@ -1,4 +1,4 @@
-name: check with package installed from build
+name: publish build to PyPI
 on:
    push:
     branches: 
