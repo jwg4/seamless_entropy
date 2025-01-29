@@ -10,6 +10,8 @@ from distutils.command.build_ext import build_ext
 from distutils.errors import CCompilerError, DistutilsExecError, \
     DistutilsPlatformError
 
+# This script is borrowed and heavily adapted from the simplejson setup.py
+
 IS_PYPY = hasattr(sys, 'pypy_translation_info')
 
 ext_errors = (CCompilerError, DistutilsExecError, DistutilsPlatformError)
