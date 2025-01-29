@@ -16,6 +16,8 @@ dependencies = [
 
 
 [tool.poetry]
+homepage = "https://github.com/jwg4/seamless_entropy"
+repository = "https://github.com/jwg4/normie/seamless_entropy"
 include = [
     {path = "src/*.c", format = "sdist"},
     {path = "src/*.h", format = "sdist"}
