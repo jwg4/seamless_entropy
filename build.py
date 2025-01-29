@@ -11,6 +11,7 @@ from distutils.errors import CCompilerError, DistutilsExecError, \
     DistutilsPlatformError
 
 # This script is borrowed and heavily adapted from the simplejson setup.py
+# https://github.com/simplejson/simplejson/blob/master/setup.py
 
 IS_PYPY = hasattr(sys, 'pypy_translation_info')
 
