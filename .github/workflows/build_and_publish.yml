@@ -6,28 +6,7 @@ on:
       - build_and_publish
 
 jobs:
-  generate_setup_py:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: "3.10"
-      - name: Install poetry
-        run: pip install poetry
-      - name: Add requirements
-        run: poetry install -v
-      - name: Build package
-        run: poetry build -f sdist
-      - name: extract setup.py
-        run: tar --wildcards -zxvf dist/seamless_entropy-*.tar.gz seamless_entropy-*/setup.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Setup_Py
-          path: seamless_entropy-*/setup.py
-  
   build_wheel_with_c:
-    needs: generate_setup_py
     strategy:
       fail-fast: false
       matrix:
@@ -37,10 +16,6 @@ jobs:
       REQUIRE_SPEEDUPS: 1
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v4
-        with:
-          name: Setup_Py
-          path: setup.py
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.22.0
       - uses: actions/upload-artifact@v4
