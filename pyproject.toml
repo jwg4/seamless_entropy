@@ -1,6 +1,6 @@
 [project]
 name = "seamless-entropy"
-version = "0.1.0"
+version = "0.2.4"
 description = "An experimental package intended to test adaptive dependencies for numeric code."
 authors = [
     {name = "Jack Grahl",email = "jack.grahl@gmail.com"}
@@ -16,6 +16,8 @@ dependencies = [
 
 
 [tool.poetry]
+homepage = "https://github.com/jwg4/seamless_entropy"
+repository = "https://github.com/jwg4/normie/seamless_entropy"
 include = [
     {path = "src/*.c", format = "sdist"},
     {path = "src/*.h", format = "sdist"}
