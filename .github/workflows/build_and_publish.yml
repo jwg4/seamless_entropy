@@ -24,7 +24,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Setup_Py
-          path: setup.py
+          path: seamless_entropy-*/setup.py
   
   build_wheel_with_c:
     needs: generate_setup_py
